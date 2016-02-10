@@ -1,0 +1,42 @@
+plugins {
+  id "com.github.lkishalmi.gatling" version "0.1.1"
+  id "org.sonarqube" version "1.2"
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url  "http://dl.bintray.com/npetzall/maven"
+    }
+    jcenter()
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+
+group 'npetzall.http.double'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+sourceSets {
+  test {
+    scala {
+      srcDirs = ['src/gatling/simulations']
+    }
+  }
+}
+
+dependencies {
+  compile "npetzall.http-double:http-double-api:0.0.2"
+  compile "npetzall.xpath:simple-xpath:0.0.1"
+  runtime "npetzall.http-double:http-double-server:0.0.2"
+  testCompile configurations.gatling
+  testCompile "org.scala-lang:scala-library:2.11.1"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.10'
+}

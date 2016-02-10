@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2001/12/soap-envelope" SOAP-ENV:encodingStyle="http://www.w3.org/2001/12/soap-encoding" >
+    <SOAP-ENV:Body xmlns:m="http://npetzall.http-double/example/reverseText" >
+        <m:ReverseTextResponse>
+            <m:text>${text}</m:text>
+        </m:ReverseTextResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
