@@ -62,7 +62,7 @@ public class ExampleServiceDouble implements ServiceDouble {
                 .templateName(GET_QUOTATION)
                 .contentType(MIME_XML)
                 .addTokens(tokens)
-                .delay(0);
+                .delay(5000,7000);
     }
 
     private void reverseText(Response response, Map<String,String> tokens) {

@@ -21,6 +21,6 @@ class GetQuotationTest extends Simulation {
       .check(status.is(200))
     )
   setUp(
-    scn.inject(constantUsersPerSec(20) during(120 seconds) randomized)
+    scn.inject(constantUsersPerSec(40) during(240 seconds) randomized)
   ).protocols(httpConf)
 }

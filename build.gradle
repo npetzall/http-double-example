@@ -14,9 +14,14 @@ repositories {
 
 apply plugin: 'idea'
 apply plugin: 'java'
+apply plugin: 'application'
 
 group 'npetzall.http.double'
 version '0.0.1'
+applicationName = 'http-double-example'
+mainClassName = "npetzall.httpdouble.server.CmdLauncher"
+startScripts.unixStartScriptGenerator.template = resources.text.fromFile(file(project.projectDir.absolutePath + "/startscripts/http-double.sh.txt"))
+startScripts.windowsStartScriptGenerator.template = resources.text.fromFile(file(project.projectDir.absolutePath + "/startscripts/http-double.bat.txt"))
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -32,7 +37,7 @@ sourceSets {
 dependencies {
   compile "npetzall.http-double:http-double-api:0.0.2"
   compile "npetzall.xpath:simple-xpath:0.0.1"
-  runtime "npetzall.http-double:http-double-server:0.0.2"
+  runtime "npetzall.http-double:http-double-server:0.0.3"
   testCompile configurations.gatling
   testCompile "org.scala-lang:scala-library:2.11.1"
 }
